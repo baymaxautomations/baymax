@@ -17,26 +17,26 @@ export function renderContact() {
           <div class="ceo-block">
             <div class="ceo-avatar" aria-hidden="true">👤</div>
             <div class="ceo-info">
-              <h3>Raj Narayan</h3>
+              <h3>Raj Namdev</h3>
               <p>Founder & CEO</p>
             </div>
           </div>
           <p>We are an AI-based system automation company specializing in intelligent communication, data automation, and workflow orchestration for businesses of all sizes.</p>
           
           <nav class="contact-channels" aria-label="Communication channels">
-            <a href="https://wa.me/" class="channel-item" target="_blank" rel="noopener">
+            <!-- <a href="https://wa.me/" class="channel-item" target="_blank" rel="noopener">
               <span class="channel-icon" aria-hidden="true">💬</span>
               WhatsApp
-            </a>
+            </a> -->
             <a href="mailto:contact@baymaxautomations.com" class="channel-item">
               <span class="channel-icon" aria-hidden="true">✉️</span>
               contact@baymaxautomations.com
             </a>
             <a href="tel:+91" class="channel-item">
               <span class="channel-icon" aria-hidden="true">📞</span>
-              +91 XXXXXXXXXX
+              +91 8168543057
             </a>
-            <a href="https://linkedin.com/" class="channel-item" target="_blank" rel="noopener">
+            <a href="https://www.linkedin.com/in/raj-namdev-4a3b283aa/" class="channel-item" target="_blank" rel="noopener">
               <span class="channel-icon" aria-hidden="true">💼</span>
               LinkedIn
             </a>
