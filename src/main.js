@@ -35,6 +35,51 @@ function getPage() {
   return routes[hash] ? hash : 'home';
 }
 
+const seoData = {
+  home: {
+    title: "Baymax Automations — What You Think Is What We Make",
+    description: "AI-powered system automations for communication, data, and workflow orchestration. What you think is what we make.",
+  },
+  'what-we-do': {
+    title: "What We Do | Baymax Automations",
+    description: "We build intelligent automation systems connecting communication channels and automating data workflows natively with AI.",
+  },
+  pricing: {
+    title: "Pricing | Baymax Automations",
+    description: "Transparent and scalable pricing for AI automation systems. Choose the plan that fits your business needs.",
+  },
+  contact: {
+    title: "Contact Us | Baymax Automations",
+    description: "Get in touch with Baymax Automations. Let's talk about how we can automate your business workflows.",
+  },
+  login: {
+    title: "Client Login | Baymax Automations",
+    description: "Sign in to your Baymax Automations client dashboard.",
+  },
+};
+
+function updateSEO(page) {
+  const data = seoData[page] || seoData.home;
+  document.title = data.title;
+
+  const descMeta = document.querySelector('meta[name="description"]');
+  if (descMeta) descMeta.setAttribute('content', data.description);
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute('content', data.title);
+
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.setAttribute('content', data.description);
+
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute('href', window.location.origin + window.location.pathname + '#' + page);
+}
+
 function navigate() {
   const page = getPage();
   const route = routes[page];
@@ -50,6 +95,9 @@ function navigate() {
 
   logoStrip.style.display = isLogin ? 'none' : 'flex';
   footer.style.display = isLogin ? 'none' : '';
+
+  // Update SEO Meta Tags
+  updateSEO(page);
 
   // Render page
   app.innerHTML = route.render();
